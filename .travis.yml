@@ -11,4 +11,4 @@ after_success:
     - ssh-add ~/.ssh/deploy_key
     - echo -e "Host haroku.844196.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy_key\n" >> ~/.ssh/config
     - git remote add haroku dokku@haroku.844196.com:sample
-    - git push haroku
+    - git push -f haroku master

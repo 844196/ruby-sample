@@ -9,5 +9,6 @@ after_success:
     - eval "$(ssh-agent -s)"
     - chmod 600 .travis/deploy_key
     - ssh-add .travis/deploy_key
+    - echo -e "Host haroku.844196.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     - git remote add haroku dokku@haroku.844196.com:sample
     - git push haroku master

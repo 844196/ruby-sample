@@ -11,6 +11,6 @@ after_success:
     - ssh-add .travis/deploy_key
     - echo -e "Host haroku.844196.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     - git add --all
-    - 'git commit -m "Generate Travis JOB $TRAVIS_JOB_NUMBER'
+    - 'git commit -m "Generate Travis JOB $TRAVIS_JOB_NUMBER"'
     - git remote add haroku dokku@haroku.844196.com:sample
     - git push haroku master

@@ -2,12 +2,12 @@ branches:
     only:
         - production
 before_script:
-    - openssl aes-256-cbc -K $encrypted_34f53ba26646_key -iv $encrypted_34f53ba26646_iv -in .travis/id_rsa.enc -out .travis/id_rsa -d
+    - openssl aes-256-cbc -K $encrypted_34f53ba26646_key -iv $encrypted_34f53ba26646_iv -in .travis/deploy_key.enc -out .travis/deploy_key -d
 script:
     - echo hi
 after_success:
     - eval "$(ssh-agent -s)"
-    - chmod 600 .travis/id_rsa
-    - ssh-add .travis/id_rsa
+    - chmod 600 .travis/deploy_key
+    - ssh-add .travis/deploy_key
     - git remote add haroku dokku@haroku.844196.com:sample
     - git push haroku master

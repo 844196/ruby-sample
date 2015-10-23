@@ -3,6 +3,8 @@ branches:
         - production
 before_script:
     - openssl aes-256-cbc -K $encrypted_34f53ba26646_key -iv $encrypted_34f53ba26646_iv -in .travis/id_rsa.enc -out .travis/id_rsa -d
+script:
+    - echo hi
 after_success:
     - eval "$(ssh-agent -s)"
     - chmod 600 .travis/id_rsa
